@@ -1,6 +1,6 @@
-<form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)" class="flex-initial place-content-center">
-  <fieldset class="mb-3 place-content-center">
-    <label for="username" class="block text-center">Username</label>
+<form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)" class="m-5">
+  <fieldset class=" flex my-3 justify-center">
+    <label for="username" class=""></label>
     <input
       ngModel
       #username="ngModel"
@@ -10,6 +10,6 @@
       class="border border-slate-300 p-2 rounded-md"
       placeholder="What's your name?"
     />
+    <button type="submit" class="bg-lightmajorelleblue hover:bg-majorelleblue text-white p-2 rounded-md px-5 mx-2" >Login</button>
   </fieldset>
-  <button type="submit" class="bg-yellow-500 p-2 rounded-md">Login</button>
 </form>

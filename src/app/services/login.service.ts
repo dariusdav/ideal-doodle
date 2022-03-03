@@ -1,9 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of, switchMap, tap } from 'rxjs';
+import { map, Observable, of, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
-import { storageSave } from '../util/storage.utils';
 
 const { apiUsers, apiKey } = environment;
 @Injectable({
@@ -13,19 +12,14 @@ export class LoginService {
   constructor(private readonly http: HttpClient) {}
 
   public login(username: string): Observable<User> {
-    return this.checkUsername(username)
-    .pipe(
-      switchMap((user: User| undefined) =>{
+    return this.checkUsername(username).pipe(
+      switchMap((user: User | undefined) => {
         if (user === undefined) {
           return this.createUser(username);
-      }
-       return of(user);
-    }),
-    tap((user : User)=> {
-      storageSave<User>(user.username,user)
-    })
-    )
-    
+        }
+        return of(user);
+      })
+    );
   }
   private checkUsername(username: string): Observable<User | undefined> {
     return this.http
