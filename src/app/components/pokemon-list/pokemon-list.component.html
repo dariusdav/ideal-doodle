@@ -1,5 +1,4 @@
-<ul> 
-  <li *ngFor="let p of pokemon">
-    <span>{{ p.name }} </span>
-  </li>
+<ul class="grid grid-flow-row grid-cols-3">
+  <app-pokemon-list-item *ngFor="let p of pokemon"
+  [pokemon]="p" class="flex justify-center text-2xl font-medium capitalize"> </app-pokemon-list-item>
 </ul>

@@ -1,0 +1,26 @@
+<h1
+  class="break-words font-thin text-5xl thin text-minionyellow text-center bg-darkslateblue font-Pokemon outline-5 p-6 "
+>
+  Pokemon Trainer App
+</h1>
+<nav *ngIf="user !== undefined"
+  class="bg-darkslateblue relative flex items-center justify-between px-1 h-12"
+>
+    <div class="flex space-x-4">
+      <a routerLink="/trainer"
+        class="hover:bg-plumppurple hover:text-blue-200 text-white px-3 py-2 rounded-md text-xl font-normal"
+      >
+        Trainer
+      </a>
+      <a routerLink="/catalogue"
+        class="hover:bg-plumppurple hover:text-blue-200  text-white px-3 py-2 rounded-md text-xl font-normal"
+      >
+        Catalogue
+      </a>
+    </div>
+  <a
+    class="hover:bg-plumppurple flex content-end hover:text-blue-200 text-white px-3 py-2 rounded-md text-xl font-normal"
+  >
+    Logout
+  </a>
+</nav>

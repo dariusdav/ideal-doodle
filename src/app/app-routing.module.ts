@@ -13,7 +13,7 @@ const routes: Routes =[
     },
     {
         path: "login",
-        component: LandingPage,
+        component: LandingPage        
     },
     {
         path: "catalogue",

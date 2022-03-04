@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CatchPokemonButtonComponent } from './components/catch-pokemon-button/catch-pokemon-button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     TrainerPage,
     PokemonCataloguePage,
     LoginFormComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonListItemComponent,
+    NavbarComponent,
+    CatchPokemonButtonComponent
   ],
   imports: [
     BrowserModule,

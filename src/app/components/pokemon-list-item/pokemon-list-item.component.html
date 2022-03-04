@@ -1,0 +1,7 @@
+<li *ngIf="pokemon" class="w-auto shadow-md">
+    <section class="p-4">
+        <img [src]="picture" [alt]="pokemon.name"/>
+    </section>
+    <span class="flex justify-center mb-1">{{pokemon.name}} </span>
+    <app-catch-pokemon-button class="flex justify-center "[pokemonName]="pokemon.name"></app-catch-pokemon-button>
+</li>

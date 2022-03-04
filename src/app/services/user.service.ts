@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Pokemon } from '../models/pokemon.model';
 import { User } from '../models/user.model';
 import { storageRead, storageSave } from '../util/storage.utils';
 
@@ -17,5 +18,13 @@ export class UserService {
   private _user?: User;
   constructor() { 
     this._user = storageRead<User>("user")
+  }
+
+
+  public CaughtPokemon(name:string) : boolean{
+    if (this._user){
+      return Boolean(this._user?.pokemon.find((p : Pokemon)=> p.toString() === name))
+    }
+    return false;    
   }
 }

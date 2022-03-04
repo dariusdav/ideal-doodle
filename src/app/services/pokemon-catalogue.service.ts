@@ -13,7 +13,7 @@ export class PokemonCatalogueService {
   private _error: string = ";"
   private _loading = false;
   get pokemon() :Pokemon[]{
-    console.log("PokemonCatalogueService", this._pokemon);
+    // console.log("PokemonCatalogueService", this._pokemon);
     
     return this._pokemon;
   }
@@ -42,5 +42,8 @@ export class PokemonCatalogueService {
         this._error = error.message;
       },
     });
+  }
+  public pokemonByName(name: string) :Pokemon | undefined {
+    return this._pokemon.find((poke : Pokemon) => poke.name === name)
   }
 }
