@@ -13,11 +13,9 @@ const { apiKey, apiUsers } = environment;
   providedIn: 'root',
 })
 export class FavoriteService {
-  private _loading = false;
 
-  get loading() {
-    return this._loading;
-  }
+
+
   constructor(
     private readonly pokemonService: PokemonCatalogueService,
     private readonly userService: UserService,
@@ -40,18 +38,20 @@ export class FavoriteService {
       throw new Error('addToCaught: No pokemon with name: ' + name);
     }
     if (this.userService.CaughtPokemon(name)) {
-      throw new Error('addToCaught: Already caught!');
+      this.userService.releasePokemon(name);
+    } else {
+      this.userService.addPokemon(name)
     }
     const headers = new HttpHeaders({
       'content-type': 'application/json',
       'x-api-key': apiKey,
     });
-    this._loading = true;
+ 
     return this.http
       .patch<User>(
         `${apiUsers}/${userId}`,
         {
-          pokemon: [...this.userService.user.pokemon, name],
+          pokemon: [...this.userService.user.pokemon],
         },
         { headers }
       )
@@ -61,7 +61,7 @@ export class FavoriteService {
           // storageSave("user",JSON.stringify(user))
         }),
         finalize(() => {
-          this._loading = false;
+
         })
       );
   }

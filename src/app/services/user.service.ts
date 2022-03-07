@@ -23,8 +23,20 @@ export class UserService {
 
   public CaughtPokemon(name:string) : boolean{
     if (this._user){
-      return Boolean(this._user?.pokemon.find((p : Pokemon)=> p.toString() === name))
+      return Boolean(this._user?.pokemon.find((p : string)=> p === name))
     }
     return false;    
+  }
+
+  public releasePokemon(name : string) : void {
+    if (this._user){
+      this._user.pokemon = this._user.pokemon.filter((p: string) => p !== name)
+    }
+  }
+
+  public addPokemon(name : string) : void {
+    if (this._user){
+      this._user.pokemon.push(name)
+    }
   }
 }
