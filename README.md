@@ -19,7 +19,8 @@ Best pokemon game ever created in existence, please don't sue Nintendo.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
-For this version i didn't bother with uploading it to Heroku ;)
+Heroku link --> https://pokemon-doodle.herokuapp.com/ <--
+<img src="figma.png">
 ## Usage
 
 Download the repository:
